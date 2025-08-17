@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VulnWatch UK — Exploit & Vulnerability OSINT Portal</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#10161d;
+      --muted:#9bb0c5;
+      --text:#e6f1ff;
+      --accent:#40f99b;
+      --accent2:#56ccf2;
+      --warn:#ffae42;
+      --danger:#ff5c5c;
+      --ok:#49d28f;
+      --code:#0c1218;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(64,249,155,0.06), transparent 50%),
+                  radial-gradient(1000px 600px at 110% 10%, rgba(86,204,242,0.05), transparent 50%),
+                  var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.45;
+    }
+    header{
+      padding:28px 20px 12px;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(86,204,242,0.05), transparent);
+    }
+    .container{max-width:1200px;margin:0 auto;padding:0 16px}
+    h1{font-size:clamp(28px,3vw,40px);margin:0 0 6px;letter-spacing:0.3px}
+    .subtitle{color:var(--muted);font-size:14px}
+    .pill{
+      display:inline-block;padding:4px 10px;border:1px solid rgba(255,255,255,0.14);
+      border-radius:999px;color:var(--muted);font-size:12px;margin-right:8px;background:rgba(255,255,255,0.03)
+    }
+    main{padding:18px 0 100px}
+    section{margin:28px 0;padding:18px;background:var(--panel);border:1px solid rgba(255,255,255,0.06);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.35)}
+    section h2{margin:6px 0 14px;font-size:22px}
+    .row{display:flex;gap:16px;flex-wrap:wrap}
+    .card{flex:1 1 280px;background:var(--panel);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px}
+    a{color:var(--accent2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+    input,select,button{
+      background:#0e141a;color:var(--text);border:1px solid rgba(255,255,255,0.12);border-radius:8px;
+      padding:10px 12px;font-size:14px
+    }
+    button{cursor:pointer}
+    .btn-ghost{background:transparent;border-color:rgba(255,255,255,0.2)}
+    table{width:100%;border-collapse:separate;border-spacing:0 8px}
+    thead th{font-weight:600;color:#b7c7da;text-align:left;font-size:12px;letter-spacing:.4px;text-transform:uppercase;padding:10px}
+    tbody td{padding:10px;vertical-align:top;background:#0c1218;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
+    tbody tr{box-shadow:0 1px 0 rgba(255,255,255,0.04)}
+    .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid rgba(255,255,255,0.12);color:#c7d5e5;margin-right:6px}
+    .small{font-size:12px;color:#b3c3d6}
+    .muted{color:var(--muted)}
+    .score{font-variant-numeric:tabular-nums}
+    .bar{height:4px;border-radius:4px;background:#17202a;overflow:hidden}
+    .bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#84fab0)}
+    code,pre{background:var(--code);padding:2px 6px;border-radius:6px;color:#bfe2ff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(260px,1fr));gap:14px}
+    footer{color:#a9b7c6;padding:24px 0 60px}
+    details{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px}
+    summary{cursor:pointer;font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between">
+        <h1>VulnWatch UK</h1>
+        <div>
+          <span class="pill">Static • GitHub Pages–ready</span>
+          <span class="pill">KEV + EPSS enrichment</span>
+          <span class="pill">UK Gov compliance notes</span>
+        </div>
+      </div>
+      <p class="subtitle">Exploit & vulnerability OSINT portal — integrates CISA KEV (in-the-wild exploitation) and FIRST EPSS (likelihood), with links to NVD, CVE.org, Exploit-DB, AttackerKB, and OSV. Built for passive intelligence, triage, and lab-only validation.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="dashboard">
+      <h2>Live Dashboard — KEV × EPSS</h2>
+      <p class="small">Data sources: <a href="https://github.com/cisagov/kev-data" target="_blank" rel="noopener">CISA KEV (GitHub mirror)</a> &nbsp;|&nbsp; <a href="https://www.first.org/epss/api" target="_blank" rel="noopener">FIRST EPSS API</a></p>
+      <div class="controls">
+        <label class="small">Max CVEs <input type="number" id="limit" min="10" max="500" value="100" style="width:90px"></label>
+        <label class="small">Added within (days) <input type="number" id="days" min="0" max="3650" value="60" style="width:90px"></label>
+        <label class="small">Vendor / Product filter <input type="text" id="filterText" placeholder="e.g., Microsoft, Fortinet, Confluence" style="min-width:260px"></label>
+        <button id="refresh">Refresh</button>
+        <button id="exportCsv" class="btn-ghost">Export CSV</button>
+      </div>
+      <div class="small muted" id="status">Loading…</div>
+      <div style="overflow:auto;margin-top:8px">
+        <table id="kevTable" aria-describedby="status">
+          <thead>
+            <tr>
+              <th style="min-width:110px">CVE</th>
+              <th style="min-width:180px">Vendor / Product</th>
+              <th>Title</th>
+              <th>Date Added</th>
+              <th>Due</th>
+              <th>EPSS</th>
+              <th>Links</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="prioritisation">
+      <h2>Prioritisation Model</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin-top:0">1) Confirm “exploited-in-the-wild”</h3>
+          <p class="small">Treat items in <strong>CISA KEV</strong> as highest priority for triage and remediation.</p>
+          <p class="small">Reference: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA KEV</a></p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">2) Likelihood × Impact</h3>
+          <p class="small">Use <strong>EPSS</strong> (probability of exploitation) alongside impact metrics (CVSS from NVD/vendor) to rank where to focus first.</p>
+          <p class="small">Reference: <a href="https://www.first.org/epss/" target="_blank" rel="noopener">EPSS (v4)</a>, <a href="https://nvd.nist.gov/developers/start-here" target="_blank" rel="noopener">NVD API</a></p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">3) Exploitability & Context</h3>
+          <p class="small">Check availability and quality of PoCs (e.g., Exploit-DB) and community context (e.g., AttackerKB). Validate only in a sandboxed lab.</p>
+          <p class="small">Reference: <a href="https://www.exploit-db.com/" target="_blank" rel="noopener">Exploit-DB</a>, <a href="https://attackerkb.com/" target="_blank" rel="noopener">AttackerKB</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <h2>OSINT Sources & Tooling</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin-top:0">Feeds & Databases</h3>
+          <ul class="small">
+            <li><a href="https://github.com/cisagov/kev-data" target="_blank" rel="noopener">CISA KEV (GitHub mirror)</a> — JSON/CSV with CC0 license.</li>
+            <li><a href="https://nvd.nist.gov/vuln/search" target="_blank" rel="noopener">NVD CVE Search</a> — CVSS, references, CPEs. (Browser calls are rate-limited.)</li>
+            <li><a href="https://www.cve.org/" target="_blank" rel="noopener">CVE.org</a> — canonical CVE records.</li>
+            <li><a href="https://osv.dev/list" target="_blank" rel="noopener">OSV</a> — OSS advisories (aggregated).</li>
+            <li><a href="https://github.com/advisories" target="_blank" rel="noopener">GitHub Advisory Database</a> (requires token for API).</li>
+            <li><a href="https://www.exploit-db.com/" target="_blank" rel="noopener">Exploit-DB</a> & <code>searchsploit</code> (Kali).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Recon & Validation</h3>
+          <ul class="small">
+            <li><a href="https://nmap.org/" target="_blank" rel="noopener">Nmap</a> (NPSL license)</li>
+            <li><a href="https://www.greenbone.net/en/community-edition/" target="_blank" rel="noopener">OpenVAS / Greenbone CE</a></li>
+            <li><a href="https://www.zaproxy.org/" target="_blank" rel="noopener">OWASP ZAP</a></li>
+            <li><a href="https://github.com/laramies/theHarvester" target="_blank" rel="noopener">theHarvester</a></li>
+            <li><a href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noopener">SpiderFoot</a> (self-hosted)</li>
+            <li><a href="https://github.com/qeeqbox/social-analyzer" target="_blank" rel="noopener">Social-Analyzer</a> (self-hosted)</li>
+            <li><a href="https://ahmia.fi/" target="_blank" rel="noopener">Ahmia</a> • <a href="https://onionscan.org/" target="_blank" rel="noopener">OnionScan</a> • <a href="https://owasp.org/www-project-torbot/" target="_blank" rel="noopener">TorBot</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Quick Lookups</h3>
+          <div class="controls">
+            <input id="cveLookup" placeholder="CVE-YYYY-NNNN" style="flex:1" />
+            <button id="openLinks">Open Links</button>
+          </div>
+          <p class="small muted">Opens tabs for NVD, CVE.org, Exploit-DB, AttackerKB, OSV for the CVE ID.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="doctrine">
+      <h2>Doctrine & Compliance (UK Gov)</h2>
+      <p class="small">Built from two research reports: (1) Top Free OSINT Tools (multi-category survey) and (2) UK Gov OSINT Tools Research (licensing, OPSEC, doctrine). Key tenets:</p>
+      <ul class="small">
+        <li><strong>Passive → Active progression.</strong> Start with passive OSINT (KEV, EPSS, theHarvester, SpiderFoot). Move to active scanning (ZAP, Nmap, OpenVAS) only with written authorization.</li>
+        <li><strong>Exploit relevance.</strong> Confirm exposure and versions; prioritise KEV; weigh EPSS probability; verify exploit maturity; validate only in sandbox/lab.</li>
+        <li><strong>Self-hosting & data minimisation.</strong> Prefer self-hosted tools (SpiderFoot, Social-Analyzer). Avoid leaking targets/queries to third parties.</li>
+        <li><strong>Legal anchors (UK).</strong> Adhere to the Computer Misuse Act 1990 and Investigatory Powers Act 2016; operational activity requires proper warrants/authorisations.</li>
+      </ul>
+      <details>
+        <summary>Operational notes</summary>
+        <ul class="small">
+          <li>Use isolated VMs, non-attributable egress, strict API-key handling, and evidence chain-of-custody.</li>
+          <li>Prefer vendor PSIRTs and official guidance for patching context; handle PoCs in a sandbox only.</li>
+          <li>Beware malicious PoCs in public repos; vet before execution.</li>
+        </ul>
+      </details>
+    </section>
+
+    <footer class="container">
+      <div class="small">
+        <strong>Disclaimer:</strong> For lawful security research and authorised testing only. No unauthorised access. This site performs client-side reads of public KEV/EPSS data and opens official vulnerability resources for analyst triage.
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const KEV_URL = "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json";
+    const EPSS_BASE = "https://api.first.org/data/v1/epss";
+
+    const $ = (sel)=>document.querySelector(sel);
+    const $$ = (sel)=>document.querySelectorAll(sel);
+
+    function fmtDate(s){
+      if(!s) return "";
+      const d = new Date(s+"T00:00:00Z");
+      return isNaN(d.getTime()) ? s : d.toISOString().slice(0,10);
+    }
+    function pct(x){
+      if(x===undefined || x===null) return "";
+      return (Number(x)*100).toFixed(2)+"%";
+    }
+    function scoreColor(v){
+      if(v>=0.5) return "var(--danger)";
+      if(v>=0.2) return "var(--warn)";
+      return "var(--ok)";
+    }
+
+    async function fetchJSON(url, opts={}){
+      const res = await fetch(url, opts);
+      if(!res.ok) throw new Error("HTTP "+res.status+" for "+url);
+      return res.json();
+    }
+
+    function filterRecent(vulns, days, filterText){
+      const now = new Date();
+      const min = new Date(now.getTime() - (Number(days)||0)*86400000);
+      const text = (filterText||"").toLowerCase().trim();
+      return vulns.filter(v => {
+        const added = new Date(v.dateAdded+"T00:00:00Z");
+        const inRange = isNaN(added.getTime()) ? true : (added >= min);
+        const matches = !text || (v.vendorProject+" "+v.product+" "+v.vulnerabilityName).toLowerCase().includes(text);
+        return inRange && matches;
+      });
+    }
+
+    function toCSV(rows){
+      const header = ["cveID","vendorProject","product","vulnerabilityName","dateAdded","dueDate","epss","epssPercentile","nvdUrl","cveUrl","exploitdb","attackerkb","osv"];
+      const esc = (v)=>(''+(v??'')).replace(/"/g,'""');
+      const out = [header.join(",")];
+      for(const r of rows){
+        out.push([esc(r.cveID),esc(r.vendorProject),esc(r.product),esc(r.vulnerabilityName),esc(r.dateAdded),esc(r.dueDate),r.epss, r.epssPercentile, r.nvdUrl, r.cveUrl, r.exploitdb, r.attackerkb, r.osv].map(v=>`"${v}"`).join(","));
+      }
+      return out.join("\n");
+    }
+
+    async function enrichWithEPSS(cves){
+      // chunk into batches of up to 100 CVEs
+      const chunks = [];
+      for(let i=0;i<cves.length;i+=100) chunks.push(cves.slice(i,i+100));
+      const out = {};
+      for(const ch of chunks){
+        const url = EPSS_BASE + "?cve="+encodeURIComponent(ch.join(","));
+        try{
+          const data = await fetchJSON(url, {cache:"no-store"});
+          for(const row of (data?.data || [])){
+            out[row.cve] = { epss: Number(row.epss), percentile: Number(row.percentile) };
+          }
+        }catch(e){
+          console.warn("EPSS batch failed", e);
+        }
+      }
+      return out;
+    }
+
+    function render(rows){
+      const tbody = $("#kevTable tbody");
+      tbody.innerHTML = "";
+      for(const v of rows){
+        const epss = v.epss ?? null;
+        const per = v.epssPercentile ?? null;
+        const barw = (Number(epss)||0)*100;
+        const color = scoreColor(Number(epss)||0);
+        const links = `
+          <a href="${v.nvdUrl}" target="_blank" rel="noopener">NVD</a> ·
+          <a href="${v.cveUrl}" target="_blank" rel="noopener">CVE</a> ·
+          <a href="${v.exploitdb}" target="_blank" rel="noopener">Exploit-DB</a> ·
+          <a href="${v.attackerkb}" target="_blank" rel="noopener">AttackerKB</a> ·
+          <a href="${v.osv}" target="_blank" rel="noopener">OSV</a>
+        `;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${v.cveID}</strong><div class="small muted">${v.knownRansomwareCampaignUse||""}</div></td>
+          <td>${v.vendorProject} <div class="small muted">${v.product}</div></td>
+          <td>${v.vulnerabilityName || ""}<div class="small muted">${v.requiredAction || ""}</div></td>
+          <td>${fmtDate(v.dateAdded)}</td>
+          <td>${fmtDate(v.dueDate)}</td>
+          <td class="score">
+            ${epss!==null ? `<div>${(Number(epss)).toFixed(3)}</div>` : ""}
+            ${per!==null ? `<div class="small muted">pctl ${(Number(per)*100).toFixed(1)}%</div>` : ""}
+            <div class="bar" title="EPSS">
+              <span style="width:${barw}%;background:${color}"></span>
+            </div>
+          </td>
+          <td class="small">${links}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    }
+
+    async function load(){
+      const limit = Number($("#limit").value)||100;
+      const days = Number($("#days").value)||0;
+      const filterText = $("#filterText").value||"";
+      $("#status").textContent = "Fetching KEV…";
+      let kev;
+      try{
+        kev = await fetchJSON(KEV_URL, {cache:"no-store"});
+      }catch(e){
+        $("#status").textContent = "Failed to fetch KEV JSON. If this persists, check network/CORS or try again.";
+        console.error(e);
+        return;
+      }
+      const vulns = Array.isArray(kev?.vulnerabilities) ? kev.vulnerabilities : [];
+      let rows = filterRecent(vulns, days, filterText)
+        .sort((a,b)=>new Date(b.dateAdded)-new Date(a.dateAdded))
+        .slice(0, limit);
+
+      const cves = rows.map(r=>r.cveID);
+      $("#status").textContent = "Fetching EPSS scores…";
+      const epssMap = await enrichWithEPSS(cves);
+
+      // attach links and EPSS metrics
+      rows = rows.map(r=>{
+        const e = epssMap[r.cveID] || {};
+        return {
+          ...r,
+          epss: e.epss ?? null,
+          epssPercentile: e.percentile ?? null,
+          nvdUrl: `https://nvd.nist.gov/vuln/detail/${r.cveID}`,
+          cveUrl: `https://www.cve.org/CVERecord?id=${r.cveID}`,
+          exploitdb: `https://www.exploit-db.com/search?cve=${r.cveID}`,
+          attackerkb: `https://attackerkb.com/topics?search=${r.cveID}`,
+          osv: `https://osv.dev/list?search=${r.cveID}`
+        }
+      });
+
+      // sort by EPSS desc, then date added desc
+      rows.sort((a,b)=> (Number(b.epss||0)-Number(a.epss||0)) || (new Date(b.dateAdded)-new Date(a.dateAdded)) );
+
+      render(rows);
+      $("#status").textContent = `Loaded ${rows.length} CVEs • Source: KEV + EPSS • ${new Date().toISOString().slice(0,19).replace('T',' ')}`;
+
+      // export hook
+      $("#exportCsv").onclick = ()=>{
+        const csv = toCSV(rows);
+        const blob = new Blob([csv], {type:"text/csv"});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `vulnwatch_kev_epss_${Date.now()}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    }
+
+    $("#refresh").addEventListener("click", load);
+    $("#filterText").addEventListener("keydown", (e)=>{ if(e.key==="Enter") load(); });
+    $("#openLinks").addEventListener("click", ()=>{
+      const id = ($("#cveLookup").value||"").trim();
+      if(!/^CVE-\d{4}-\d{4,7}$/i.test(id)){ alert("Enter a CVE like CVE-2025-12345."); return; }
+      const links = [
+        `https://nvd.nist.gov/vuln/detail/${id}`,
+        `https://www.cve.org/CVERecord?id=${id}`,
+        `https://www.exploit-db.com/search?cve=${id}`,
+        `https://attackerkb.com/topics?search=${id}`,
+        `https://osv.dev/list?search=${id}`
+      ];
+      links.forEach(u=>window.open(u, "_blank", "noopener"));
+    });
+
+    window.addEventListener("load", load);
+  </script>
+</body>
+</html>
