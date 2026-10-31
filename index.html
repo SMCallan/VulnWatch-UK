@@ -204,6 +204,9 @@
   <script>
     const KEV_URL = "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json";
     const EPSS_BASE = "https://api.first.org/data/v1/epss";
+    // Daily snapshots committed by .github/workflows/daily-snapshot.yml; the live feeds are the fallback.
+    const SNAPSHOT_KEV = "data/kev.json";
+    const SNAPSHOT_EPSS = "data/epss-kev.json";
 
     const $ = (sel)=>document.querySelector(sel);
     const $$ = (sel)=>document.querySelectorAll(sel);
@@ -252,10 +255,20 @@
     }
 
     async function enrichWithEPSS(cves){
-      // chunk into batches of up to 100 CVEs
-      const chunks = [];
-      for(let i=0;i<cves.length;i+=100) chunks.push(cves.slice(i,i+100));
       const out = {};
+      try{
+        const snap = await fetchJSON(SNAPSHOT_EPSS, {cache:"no-cache"});
+        for(const c of cves){
+          const s = snap?.scores?.[c];
+          if(s) out[c] = { epss: Number(s[0]), percentile: Number(s[1]) };
+        }
+      }catch(e){
+        console.warn("EPSS snapshot unavailable, using live API", e);
+      }
+      // anything not in the snapshot comes from the live API, in batches of up to 100 CVEs
+      const missing = cves.filter(c => !(c in out));
+      const chunks = [];
+      for(let i=0;i<missing.length;i+=100) chunks.push(missing.slice(i,i+100));
       for(const ch of chunks){
         const url = EPSS_BASE + "?cve="+encodeURIComponent(ch.join(","));
         try{
@@ -310,13 +323,18 @@
       const days = Number($("#days").value)||0;
       const filterText = $("#filterText").value||"";
       $("#status").textContent = "Fetching KEV…";
-      let kev;
+      let kev, source = "daily snapshot";
       try{
-        kev = await fetchJSON(KEV_URL, {cache:"no-store"});
-      }catch(e){
-        $("#status").textContent = "Failed to fetch KEV JSON. If this persists, check network/CORS or try again.";
-        console.error(e);
-        return;
+        kev = await fetchJSON(SNAPSHOT_KEV, {cache:"no-cache"});
+      }catch(_){
+        source = "live feeds";
+        try{
+          kev = await fetchJSON(KEV_URL, {cache:"no-store"});
+        }catch(e){
+          $("#status").textContent = "Failed to fetch KEV JSON. If this persists, check network/CORS or try again.";
+          console.error(e);
+          return;
+        }
       }
       const vulns = Array.isArray(kev?.vulnerabilities) ? kev.vulnerabilities : [];
       let rows = filterRecent(vulns, days, filterText)
@@ -346,7 +364,7 @@
       rows.sort((a,b)=> (Number(b.epss||0)-Number(a.epss||0)) || (new Date(b.dateAdded)-new Date(a.dateAdded)) );
 
       render(rows);
-      $("#status").textContent = `Loaded ${rows.length} CVEs • Source: KEV + EPSS • ${new Date().toISOString().slice(0,19).replace('T',' ')}`;
+      $("#status").textContent = `Loaded ${rows.length} CVEs • Source: KEV + EPSS (${source}) • ${new Date().toISOString().slice(0,19).replace('T',' ')}`;
 
       // export hook
       $("#exportCsv").onclick = ()=>{
