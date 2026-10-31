@@ -1,0 +1,2 @@
+date,kev_total,kev_new,kev_ransomware,kev_mean_epss,kev_epss_over_50pct,kev_top_epss_cve
+2026-10-31,1766,10,361,0.5168,906,CVE-2015-1635
