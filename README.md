@@ -22,25 +22,14 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-10-31**
+**2026-11-01**
 
 - **KEV catalogue:** 1,766 known exploited vulnerabilities (version 2026.10.30)
-- **Added in the last 7 days:** 10
+- **New since last snapshot:** 0
 - **Known ransomware use:** 361
-- **EPSS model date:** 2026-10-30
+- **EPSS model date:** 2026-10-31
 
-**Added in the last 7 days**
-
-| CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
-|---|---|---|---|---|---|---|
-| [CVE-2026-118527](https://nvd.nist.gov/vuln/detail/CVE-2026-118527) | Ivanti Connect Secure | Ivanti Connect Secure Generation of Predictable Numbers or Identifiers Vulnerability | 2026-10-30 | 2026-11-13 | Unknown | n/a |
-| [CVE-2026-111357](https://nvd.nist.gov/vuln/detail/CVE-2026-111357) | Ivanti Connect Secure | Ivanti Connect Secure Missing Authentication for Critical Function Vulnerability | 2026-10-30 | 2026-11-02 | Unknown | 0.3% |
-| [CVE-2026-97229](https://nvd.nist.gov/vuln/detail/CVE-2026-97229) | GitLab Community Edition and Enterprise Edition | GitLab Community Edition and Enterprise Edition Integer Overflow or Wraparound Vulnerability | 2026-10-29 | 2026-11-01 | Unknown | 26.6% |
-| [CVE-2026-76418](https://nvd.nist.gov/vuln/detail/CVE-2026-76418) | Cisco Secure Firewall ASA Software and Cisco Secure FTD Software | Cisco Secure Firewall ASA Software and Cisco Secure FTD Software Unchecked Return Value to NULL Pointer Dereference Vulnerability | 2026-10-29 | 2026-11-01 | Unknown | 0.9% |
-| [CVE-2026-41709](https://nvd.nist.gov/vuln/detail/CVE-2026-41709) | Broadcom VMware ESX | Broadcom VMWare ESX Insufficient Logging Vulnerability | 2026-10-28 | 2026-11-11 | Unknown | 0.7% |
-| … and 5 more | | | | | | |
-
-[Full digest →](digests/2026-10-31.md) · [All digests](digests/)
+[Full digest →](digests/2026-11-01.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
