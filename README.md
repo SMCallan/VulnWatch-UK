@@ -22,14 +22,14 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-02**
+**2026-11-03**
 
 - **KEV catalogue:** 1,766 known exploited vulnerabilities (version 2026.10.30)
 - **New since last snapshot:** 0
 - **Known ransomware use:** 361
 - **EPSS model date:** 2026-11-02
 
-[Full digest →](digests/2026-11-02.md) · [All digests](digests/)
+[Full digest →](digests/2026-11-03.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
