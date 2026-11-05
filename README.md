@@ -22,20 +22,20 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-04**
+**2026-11-05**
 
-- **KEV catalogue:** 1,767 known exploited vulnerabilities (version 2026.11.03)
+- **KEV catalogue:** 1,768 known exploited vulnerabilities (version 2026.11.04)
 - **New since last snapshot:** 1
 - **Known ransomware use:** 361
-- **EPSS model date:** 2026-11-04
+- **EPSS model date:** 2026-11-05
 
 **New since last snapshot**
 
 | CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
 |---|---|---|---|---|---|---|
-| [CVE-2026-119977](https://nvd.nist.gov/vuln/detail/CVE-2026-119977) | WordPress WordPress Core | WordPress WordPress Core Time-of-check Time-of-use (TOCTOU) Race Condition Vulnerability | 2026-11-03 | 2026-11-06 | Unknown | 1.0% |
+| [CVE-2024-27834](https://nvd.nist.gov/vuln/detail/CVE-2024-27834) | Apple Multiple Products | Apple Multiple Products Improper Authentication Vulnerability | 2026-11-04 | 2026-11-18 | Unknown | 1.4% |
 
-[Full digest →](digests/2026-11-04.md) · [All digests](digests/)
+[Full digest →](digests/2026-11-05.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
