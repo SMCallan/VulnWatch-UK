@@ -22,20 +22,14 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-05**
+**2026-11-06**
 
 - **KEV catalogue:** 1,768 known exploited vulnerabilities (version 2026.11.04)
-- **New since last snapshot:** 1
+- **New since last snapshot:** 0
 - **Known ransomware use:** 361
 - **EPSS model date:** 2026-11-05
 
-**New since last snapshot**
-
-| CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
-|---|---|---|---|---|---|---|
-| [CVE-2024-27834](https://nvd.nist.gov/vuln/detail/CVE-2024-27834) | Apple Multiple Products | Apple Multiple Products Improper Authentication Vulnerability | 2026-11-04 | 2026-11-18 | Unknown | 1.4% |
-
-[Full digest →](digests/2026-11-05.md) · [All digests](digests/)
+[Full digest →](digests/2026-11-06.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
