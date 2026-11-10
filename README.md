@@ -22,14 +22,23 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-09**
+**2026-11-10**
 
-- **KEV catalogue:** 1,769 known exploited vulnerabilities (version 2026.11.06)
-- **New since last snapshot:** 0
+- **KEV catalogue:** 1,773 known exploited vulnerabilities (version 2026.11.09)
+- **New since last snapshot:** 4
 - **Known ransomware use:** 361
-- **EPSS model date:** 2026-11-09
+- **EPSS model date:** 2026-11-10
 
-[Full digest →](digests/2026-11-09.md) · [All digests](digests/)
+**New since last snapshot**
+
+| CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
+|---|---|---|---|---|---|---|
+| [CVE-2026-102895](https://nvd.nist.gov/vuln/detail/CVE-2026-102895) | GPUStack GPUStack | GPUStack Improper Authentication Vulnerability | 2026-11-09 | 2026-11-12 | Unknown | 0.6% |
+| [CVE-2026-123158](https://nvd.nist.gov/vuln/detail/CVE-2026-123158) | OpenBSD OpenSSH | OpenBSD OpenSSH Unexpected Status Code or Return Value Vulnerability | 2026-11-09 | 2026-11-12 | Unknown | 16.5% |
+| [CVE-2026-116779](https://nvd.nist.gov/vuln/detail/CVE-2026-116779) | SignalWire FreeSwitch | SignalWire FreeSwitch Code Injection Vulnerability | 2026-11-09 | 2026-11-12 | Unknown | 2.2% |
+| [CVE-2026-123218](https://nvd.nist.gov/vuln/detail/CVE-2026-123218) | IBM Aspera Faspex | IBM Aspera Faspex Incorrect Authorization Vulnerability | 2026-11-09 | 2026-11-12 | Unknown | 0.7% |
+
+[Full digest →](digests/2026-11-10.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
