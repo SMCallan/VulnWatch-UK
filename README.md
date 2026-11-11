@@ -22,10 +22,10 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-10**
+**2026-11-11**
 
-- **KEV catalogue:** 1,773 known exploited vulnerabilities (version 2026.11.09)
-- **New since last snapshot:** 4
+- **KEV catalogue:** 1,779 known exploited vulnerabilities (version 2026.11.10)
+- **New since last snapshot:** 6
 - **Known ransomware use:** 361
 - **EPSS model date:** 2026-11-10
 
@@ -33,12 +33,14 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 
 | CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
 |---|---|---|---|---|---|---|
-| [CVE-2026-102895](https://nvd.nist.gov/vuln/detail/CVE-2026-102895) | GPUStack GPUStack | GPUStack Improper Authentication Vulnerability | 2026-11-09 | 2026-11-12 | Unknown | 0.6% |
-| [CVE-2026-123158](https://nvd.nist.gov/vuln/detail/CVE-2026-123158) | OpenBSD OpenSSH | OpenBSD OpenSSH Unexpected Status Code or Return Value Vulnerability | 2026-11-09 | 2026-11-12 | Unknown | 16.5% |
-| [CVE-2026-116779](https://nvd.nist.gov/vuln/detail/CVE-2026-116779) | SignalWire FreeSwitch | SignalWire FreeSwitch Code Injection Vulnerability | 2026-11-09 | 2026-11-12 | Unknown | 2.2% |
-| [CVE-2026-123218](https://nvd.nist.gov/vuln/detail/CVE-2026-123218) | IBM Aspera Faspex | IBM Aspera Faspex Incorrect Authorization Vulnerability | 2026-11-09 | 2026-11-12 | Unknown | 0.7% |
+| [CVE-2026-124194](https://nvd.nist.gov/vuln/detail/CVE-2026-124194) | Microsoft Office | Microsoft Office Outlook Missing User Interaction for Potentially Unsafe Action Vulnerability | 2026-11-10 | 2026-11-24 | Unknown | n/a |
+| [CVE-2026-111793](https://nvd.nist.gov/vuln/detail/CVE-2026-111793) | Openwave Messaging Limited Webtop Media Transcoder | Openwave Messaging Limited Webtop Media Transcoder Incorrect Resource Transfer Between Spheres Vulnerability | 2026-11-10 | 2026-11-24 | Unknown | 0.3% |
+| [CVE-2026-20320](https://nvd.nist.gov/vuln/detail/CVE-2026-20320) | Cisco BroadWorks | Cisco BroadWorks Improper Restriction of XML External Entity Reference Vulnerability | 2026-11-10 | 2026-11-24 | Unknown | 0.4% |
+| [CVE-2026-111560](https://nvd.nist.gov/vuln/detail/CVE-2026-111560) | Barracuda Networks Multiple Products | Barracuda Networks Multiple Products OS Command Injection Vulnerability | 2026-11-10 | 2026-11-13 | Unknown | 1.1% |
+| [CVE-2026-116606](https://nvd.nist.gov/vuln/detail/CVE-2026-116606) | Barracuda Networks Barracuda Email Security Gateway (ESG) | Barracuda Networks Email Security Gateway (ESG) Authentication Bypass Using an Alternate Path or Channel Vulnerability | 2026-11-10 | 2026-11-13 | Unknown | 1.6% |
+| … and 1 more | | | | | | |
 
-[Full digest →](digests/2026-11-10.md) · [All digests](digests/)
+[Full digest →](digests/2026-11-11.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
