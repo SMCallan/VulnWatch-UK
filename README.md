@@ -22,14 +22,21 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-13**
+**2026-11-14**
 
-- **KEV catalogue:** 1,779 known exploited vulnerabilities (version 2026.11.10)
-- **New since last snapshot:** 0
+- **KEV catalogue:** 1,781 known exploited vulnerabilities (version 2026.11.13)
+- **New since last snapshot:** 2
 - **Known ransomware use:** 361
 - **EPSS model date:** 2026-11-13
 
-[Full digest →](digests/2026-11-13.md) · [All digests](digests/)
+**New since last snapshot**
+
+| CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
+|---|---|---|---|---|---|---|
+| [CVE-2026-114713](https://nvd.nist.gov/vuln/detail/CVE-2026-114713) | UnrealIRCd UnrealIRCd | UnrealIRCd Improper Neutralization of Delimiters Vulnerability | 2026-11-13 | 2026-11-16 | Unknown | 0.3% |
+| [CVE-2026-123039](https://nvd.nist.gov/vuln/detail/CVE-2026-123039) | Check Point Multiple Products | Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability | 2026-11-13 | 2026-11-16 | Unknown | 1.3% |
+
+[Full digest →](digests/2026-11-14.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
