@@ -22,14 +22,20 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-17**
+**2026-11-18**
 
-- **KEV catalogue:** 1,781 known exploited vulnerabilities (version 2026.11.13)
-- **New since last snapshot:** 0
+- **KEV catalogue:** 1,782 known exploited vulnerabilities (version 2026.11.17)
+- **New since last snapshot:** 1
 - **Known ransomware use:** 361
-- **EPSS model date:** 2026-11-17
+- **EPSS model date:** 2026-11-18
 
-[Full digest →](digests/2026-11-17.md) · [All digests](digests/)
+**New since last snapshot**
+
+| CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
+|---|---|---|---|---|---|---|
+| [CVE-2026-115731](https://nvd.nist.gov/vuln/detail/CVE-2026-115731) | Perforce Puppet Enterprise | Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability | 2026-11-17 | 2026-12-01 | Unknown | 0.7% |
+
+[Full digest →](digests/2026-11-18.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
