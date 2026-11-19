@@ -22,20 +22,23 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-18**
+**2026-11-19**
 
-- **KEV catalogue:** 1,782 known exploited vulnerabilities (version 2026.11.17)
-- **New since last snapshot:** 1
+- **KEV catalogue:** 1,786 known exploited vulnerabilities (version 2026.11.18)
+- **New since last snapshot:** 4
 - **Known ransomware use:** 361
-- **EPSS model date:** 2026-11-18
+- **EPSS model date:** 2026-11-19
 
 **New since last snapshot**
 
 | CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
 |---|---|---|---|---|---|---|
-| [CVE-2026-115731](https://nvd.nist.gov/vuln/detail/CVE-2026-115731) | Perforce Puppet Enterprise | Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability | 2026-11-17 | 2026-12-01 | Unknown | 0.7% |
+| [CVE-2024-10441](https://nvd.nist.gov/vuln/detail/CVE-2024-10441) | Synology DiskStation Manager (DSM) | Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability | 2026-11-18 | 2026-11-21 | Unknown | 2.1% |
+| [CVE-2026-40217](https://nvd.nist.gov/vuln/detail/CVE-2026-40217) | BerriAI LiteLLM | BerriAI LiteLLM Unprotected Alternate Channel Vulnerability | 2026-11-18 | 2026-12-02 | Unknown | 61.9% |
+| [CVE-2026-90817](https://nvd.nist.gov/vuln/detail/CVE-2026-90817) | Vanderbilt University Research Electronic Data Capture (REDCap) | Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability | 2026-11-18 | 2026-11-21 | Unknown | 25.2% |
+| [CVE-2026-90436](https://nvd.nist.gov/vuln/detail/CVE-2026-90436) | Apache Axis | Apache Axis Unsafe Reflection Vulnerability | 2026-11-18 | 2026-11-21 | Unknown | 1.8% |
 
-[Full digest →](digests/2026-11-18.md) · [All digests](digests/)
+[Full digest →](digests/2026-11-19.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
