@@ -22,14 +22,23 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-20**
+**2026-11-21**
 
-- **KEV catalogue:** 1,786 known exploited vulnerabilities (version 2026.11.18)
-- **New since last snapshot:** 0
+- **KEV catalogue:** 1,790 known exploited vulnerabilities (version 2026.11.20)
+- **New since last snapshot:** 4
 - **Known ransomware use:** 361
-- **EPSS model date:** 2026-11-20
+- **EPSS model date:** 2026-11-21
 
-[Full digest →](digests/2026-11-20.md) · [All digests](digests/)
+**New since last snapshot**
+
+| CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
+|---|---|---|---|---|---|---|
+| [CVE-2026-129448](https://nvd.nist.gov/vuln/detail/CVE-2026-129448) | Apache Roller | Apache Roller Deserialization of Untrusted Data Vulnerability | 2026-11-20 | 2026-11-23 | Unknown | 5.5% |
+| [CVE-2026-123890](https://nvd.nist.gov/vuln/detail/CVE-2026-123890) | Broadcom VMware vCenter | VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability | 2026-11-20 | 2026-11-23 | Unknown | 3.0% |
+| [CVE-2025-42884](https://nvd.nist.gov/vuln/detail/CVE-2025-42884) | SAP NetWeaver | SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability | 2026-11-20 | 2026-11-23 | Unknown | 0.7% |
+| [CVE-2026-76466](https://nvd.nist.gov/vuln/detail/CVE-2026-76466) | Cisco Expressway Series | Cisco Expressway Series Use of Hard-coded Credentials Vulnerability | 2026-11-20 | 2026-11-23 | Unknown | 2.2% |
+
+[Full digest →](digests/2026-11-21.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
