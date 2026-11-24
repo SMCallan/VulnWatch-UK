@@ -22,14 +22,21 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-23**
+**2026-11-24**
 
-- **KEV catalogue:** 1,790 known exploited vulnerabilities (version 2026.11.20)
-- **New since last snapshot:** 0
-- **Known ransomware use:** 361
-- **EPSS model date:** 2026-11-23
+- **KEV catalogue:** 1,792 known exploited vulnerabilities (version 2026.11.23)
+- **New since last snapshot:** 2
+- **Known ransomware use:** 362
+- **EPSS model date:** 2026-11-24
 
-[Full digest →](digests/2026-11-23.md) · [All digests](digests/)
+**New since last snapshot**
+
+| CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
+|---|---|---|---|---|---|---|
+| [CVE-2026-133968](https://nvd.nist.gov/vuln/detail/CVE-2026-133968) | Project MONAI MONAI Label | Project MONAI MONAI Label Path Traversal Vulnerability | 2026-11-23 | 2026-11-26 | Unknown | 49.8% |
+| [CVE-2026-134624](https://nvd.nist.gov/vuln/detail/CVE-2026-134624) | N-able MailAssure | N-able MailAssure (SpamExperts) Server-Side Request Forgery (SSRF) Vulnerability | 2026-11-23 | 2026-11-26 | Unknown | 0.6% |
+
+[Full digest →](digests/2026-11-24.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
