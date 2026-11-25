@@ -22,21 +22,22 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-24**
+**2026-11-25**
 
-- **KEV catalogue:** 1,792 known exploited vulnerabilities (version 2026.11.23)
-- **New since last snapshot:** 2
+- **KEV catalogue:** 1,795 known exploited vulnerabilities (version 2026.11.24)
+- **New since last snapshot:** 3
 - **Known ransomware use:** 362
-- **EPSS model date:** 2026-11-24
+- **EPSS model date:** 2026-11-25
 
 **New since last snapshot**
 
 | CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
 |---|---|---|---|---|---|---|
-| [CVE-2026-133968](https://nvd.nist.gov/vuln/detail/CVE-2026-133968) | Project MONAI MONAI Label | Project MONAI MONAI Label Path Traversal Vulnerability | 2026-11-23 | 2026-11-26 | Unknown | 49.8% |
-| [CVE-2026-134624](https://nvd.nist.gov/vuln/detail/CVE-2026-134624) | N-able MailAssure | N-able MailAssure (SpamExperts) Server-Side Request Forgery (SSRF) Vulnerability | 2026-11-23 | 2026-11-26 | Unknown | 0.6% |
+| [CVE-2026-132224](https://nvd.nist.gov/vuln/detail/CVE-2026-132224) | Optimizely Web Experimentation | Optimizely Web Experimentation External Control of Critical State Data Vulnerability | 2026-11-24 | 2026-11-27 | Unknown | 0.8% |
+| [CVE-2026-131914](https://nvd.nist.gov/vuln/detail/CVE-2026-131914) | Idunno AntiCsrf | Idunno AntiCsrf Deserialization of Untrusted Data Vulnerability | 2026-11-24 | 2026-11-27 | Unknown | 4.3% |
+| [CVE-2026-132165](https://nvd.nist.gov/vuln/detail/CVE-2026-132165) | Drupal Core | Drupal Core Remote Code Execution Vulnerability | 2026-11-24 | 2026-11-27 | Unknown | n/a |
 
-[Full digest →](digests/2026-11-24.md) · [All digests](digests/)
+[Full digest →](digests/2026-11-25.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
