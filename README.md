@@ -22,25 +22,14 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-26**
+**2026-11-27**
 
 - **KEV catalogue:** 1,805 known exploited vulnerabilities (version 2026.11.25)
-- **New since last snapshot:** 10
+- **New since last snapshot:** 0
 - **Known ransomware use:** 362
-- **EPSS model date:** 2026-11-26
+- **EPSS model date:** 2026-11-27
 
-**New since last snapshot**
-
-| CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
-|---|---|---|---|---|---|---|
-| [CVE-2026-103406](https://nvd.nist.gov/vuln/detail/CVE-2026-103406) | Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router | Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router OS Command Injection Vulnerability | 2026-11-25 | 2026-11-28 | Unknown | 1.5% |
-| [CVE-2026-133469](https://nvd.nist.gov/vuln/detail/CVE-2026-133469) | Vates Xen Orchestra | Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability | 2026-11-25 | 2026-11-28 | Unknown | 31.8% |
-| [CVE-2025-41450](https://nvd.nist.gov/vuln/detail/CVE-2025-41450) | Danfoss AK-SM 800A Series | Danfoss AK-SM 800A Series Improper Authentication Vulnerability | 2026-11-25 | 2026-12-09 | Unknown | 4.3% |
-| [CVE-2023-25914](https://nvd.nist.gov/vuln/detail/CVE-2023-25914) | Danfoss AK-SM 800A Series | Danfoss AK-SM 800A Series Path Traversal Vulnerability | 2026-11-25 | 2026-11-28 | Unknown | 1.8% |
-| [CVE-2023-25915](https://nvd.nist.gov/vuln/detail/CVE-2023-25915) | Danfoss AK-SM 800A Series | Danfoss AK-SM 800A Series Improper Input Validation Vulnerability | 2026-11-25 | 2026-11-28 | Unknown | 2.5% |
-| … and 5 more | | | | | | |
-
-[Full digest →](digests/2026-11-26.md) · [All digests](digests/)
+[Full digest →](digests/2026-11-27.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
