@@ -22,14 +22,22 @@ Run it locally with `python3 scripts/snapshot.py` (writes files only) or `--comm
 ## Latest
 
 <!-- digest:start -->
-**2026-11-27**
+**2026-11-28**
 
-- **KEV catalogue:** 1,805 known exploited vulnerabilities (version 2026.11.25)
-- **New since last snapshot:** 0
+- **KEV catalogue:** 1,808 known exploited vulnerabilities (version 2026.11.27)
+- **New since last snapshot:** 3
 - **Known ransomware use:** 362
-- **EPSS model date:** 2026-11-27
+- **EPSS model date:** 2026-11-28
 
-[Full digest →](digests/2026-11-27.md) · [All digests](digests/)
+**New since last snapshot**
+
+| CVE | Vendor / product | Vulnerability | Added | Due | Ransomware | EPSS |
+|---|---|---|---|---|---|---|
+| [CVE-2026-120705](https://nvd.nist.gov/vuln/detail/CVE-2026-120705) | OSGeo GeoServer | OSGeo GeoServer XML Injection Vulnerability | 2026-11-27 | 2026-11-30 | Unknown | n/a |
+| [CVE-2026-129243](https://nvd.nist.gov/vuln/detail/CVE-2026-129243) | OSGeo GeoServer | OSGeo GeoServer Incorrect Authorization Vulnerability | 2026-11-27 | 2026-11-30 | Unknown | n/a |
+| [CVE-2026-136716](https://nvd.nist.gov/vuln/detail/CVE-2026-136716) | Drupal Core | Drupal Core Improper Check for Unusual or Exceptional Conditions Vulnerability | 2026-11-27 | 2026-11-30 | Unknown | 5.5% |
+
+[Full digest →](digests/2026-11-28.md) · [All digests](digests/)
 <!-- digest:end -->
 
 ---
